@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+}
+.container{
+    height: 90vh;
+    display: flex;
+    align-items: start;
+    justify-items: start;
+}
+aside{
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    width: 20%;
+    border-right: 0.05px solid rgb(230, 230, 230);
+}
+aside a{
+    text-decoration: none;
+    color: rgb(32, 32, 32);
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+aside a:hover{
+    background-color: rgb(236, 236, 236);
+}
+.search-bar{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: green; */
+}
+#logo{
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+#search{
+    width: 300px;
+    height: 30px;
+    border-radius: 25px 0px 0px 25px;
+    border: 0.2px solid black;
+    padding-left: 10px;
+    margin-right: 0;
+}
+
+#search-btn{
+    height: 30px;
+    width: 80px;
+    margin-left: 0;
+    border-radius: 0px 25px 25px 0px;
+}
+
+#logo:hover{
+    animation-name: borders;
+    animation-duration: 2s;
+}
+
+@keyframes borders{
+    from {
+        color: black;
+        rotate: 0deg;
+        font-size: 16px;
+    }
+    to {
+        color: red;
+        rotate: 360deg;
+        font-size: x-large;
+    }
+}
+
+.content{
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.video-card{
+    margin: 10px;
+    /* border: .1px solid rgb(190, 190, 190); */
+    width: 300px;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    border-radius: 25px;
+
+}
+
+
+.video-card:hover {
+    box-shadow: 2px 2px 2px 2px #e4e4e4;
+}
+.thumbnail{
+    height: 80%;
+    width: 100%;
+    border-radius: 10px;
+    border: .1px solid rgb(207, 207, 207);
+}
+
+.title{
+    padding: 0;
+    margin-top: 5px;
+    font-size: large;
+}
+.muted-text{
+    color: grey;
+    padding: .5px;
+}
+.vid-info{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    margin-right: 20px;
+}
