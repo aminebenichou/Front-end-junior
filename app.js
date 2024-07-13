@@ -1,35 +1,25 @@
-const videos = [
-    {
-        title: "Learning Python for Beginners",
-        channel: "Code Academy",
-        views: 1500000,
-        image: "./images.png"
-    },
-    {
-        title: "Advanced Python Techniques",
-        channel: "Tech with Tim",
-        views: 850000,
-        image: "./images.png"
-    },
-    {
-        title: "Python for Data Science",
-        channel: "Data School",
-        views: 1250000,
-        image: "./images.png"
-    },
-    {
-        title: "Machine Learning Basics",
-        channel: "ML Experts",
-        views: 950000,
-        image: "./images.png"
-    },
-    {
-        title: "Web Development with Django",
-        channel: "Coding Dojo",
-        views: 700000,
-        image: "./images.png"
+
+
+async function getVideos() {
+    const url = 'https://youtube-v31.p.rapidapi.com/search?relatedToVideoId=rZNfLzCFf4A&ab&part=id%2Csnippet&type=video&maxResults=50';
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': 'd6f2791a72msha295b982405ced2p113a58jsn1c774b87e870',
+            'x-rapidapi-host': 'youtube-v31.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result.items);
+        return result.items
+    } catch (error) {
+        console.error(error);
     }
-];
+}
+
 
 function createVideoCard(data) {
     const videoCard = document.createElement("div")
@@ -53,12 +43,16 @@ function createVideoCard(data) {
     videoCard.appendChild(views)
 
     // populating data
-    title.innerHTML = data.title
-    channel.innerHTML = data.channel
-    views.innerHTML = data.views
-    img.src = data.image
+    title.innerHTML = data.snippet.title
+    channel.innerHTML = data.snippet.channelTitle
+    // views.innerHTML = data.views
+    img.src = data.snippet.thumbnails.default.url
 }
 
-videos.forEach(video => {
-    createVideoCard(video)
-});
+
+getVideos().then(data => {
+   
+    data.forEach(video => {
+        createVideoCard(video)
+    });
+})

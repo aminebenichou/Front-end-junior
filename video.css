@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.left-side{
+    width: 80%;
+    /* border: 1px solid black; */
+}
+.right-side{
+    width: 30%;
+    /* border: 1px solid black; */
+}
+.video-card{
+    width: 100%;
+    height: max-content;
+    /* border: 1px solid black; */
+    display: flex;
+}
+.thumbnail{
+    width: 40%;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+.video-card:hover{
+    box-shadow: 2px 2px 2px 2px #e4e4e4;
+}
