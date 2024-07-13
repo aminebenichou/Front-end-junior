@@ -5,7 +5,7 @@ async function getVideos() {
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': 'd6f2791a72msha295b982405ced2p113a58jsn1c774b87e870',
+            'x-rapidapi-key': '',
             'x-rapidapi-host': 'youtube-v31.p.rapidapi.com'
         }
     };
@@ -42,6 +42,14 @@ function createVideoCard(data) {
     videoCard.appendChild(channel)
     videoCard.appendChild(views)
 
+    link.addEventListener('click', function (event) {
+        // Your code here
+        storeInfo(data)
+        console.log('Link clicked!');
+        window.location.href = './video.html';
+    });
+
+
     // populating data
     title.innerHTML = data.snippet.title
     channel.innerHTML = data.snippet.channelTitle
@@ -49,9 +57,11 @@ function createVideoCard(data) {
     img.src = data.snippet.thumbnails.default.url
 }
 
-
+function storeInfo(data) {
+    localStorage.setItem("videoId", data.id.videoId);
+}
 getVideos().then(data => {
-   
+
     data.forEach(video => {
         createVideoCard(video)
     });
