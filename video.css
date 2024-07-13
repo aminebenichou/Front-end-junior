@@ -19,10 +19,14 @@
     width: 100%;
     height: max-content;
     /* border: 1px solid black; */
+    margin: 15px;
+    padding: 10px;
     display: flex;
 }
 .thumbnail{
+    
     width: 40%;
+    margin-right: 15px;
 }
 .info{
     display: flex;
@@ -30,5 +34,5 @@
 }
 
 .video-card:hover{
-    box-shadow: 2px 2px 2px 2px #e4e4e4;
+    box-shadow: 2px 2px 2px 2px #d8d8d8;
 }
